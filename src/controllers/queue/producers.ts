@@ -11,12 +11,11 @@ const redisConnectionOptions: object = {
 
 export const publishPostDelay: any = new queue('publishPostDelay',redisConnectionOptions);
 
-/* publishPostDelay.process(async (job, jobDone)=>{
+publishPostDelay.process(async (job, jobDone)=>{
     const {content, title, id} = job.data;
     const newPost: object = await Posts.query().insert({owner_id: id, content, title})
     jobDone();
-}) */
+})
 
-/* 
 publishPostDelay.on("failed", (err)=>{console.log(err);
-});   */
+});   
